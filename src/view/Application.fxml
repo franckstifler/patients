@@ -5,10 +5,43 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicationController">
+<AnchorPane id="AnchorPane" prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicationController">
     <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
+        <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <HBox alignment="CENTER" prefHeight="70" prefWidth="800" spacing="10.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <TextField fx:id="tfSearch" onKeyReleased="#tfSearchOnKeyReleased" prefHeight="25.0" prefWidth="584.0" promptText="Search Patient" />
+                    </children>
+                </HBox>
+            </top>
+            <bottom>
+                <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Button fx:id="btnAdd" onAction="#btnSellOrderOnAction" text="Add" />
+                        <Button fx:id="btnEdit" onAction="#btnEditOnAction" text="Edit" />
+                        <Button fx:id="btnDelete" onAction="#btnDeleteOnAction" text="Delete" />
+                    </children>
+                </HBox>
+            </bottom>
+            <center>
+                <TableView fx:id="" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="idColumn" prefWidth="75.0" text="Id" />
+                        <TableColumn fx:id="nomColumn" prefWidth="75.0" text="Nom" />
+                        <TableColumn fx:id="prenomColumn" prefWidth="125.0" text="Prenom" />
+
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </center>
+            <padding>
+                <Insets left="30.0" right="30.0" />
+            </padding>
+        </BorderPane>
     </children>
 </AnchorPane>

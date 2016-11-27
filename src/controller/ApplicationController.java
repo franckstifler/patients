@@ -30,8 +30,6 @@ public class ApplicationController implements Initializable {
     ResultSet resultSet;
 
 
-
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 

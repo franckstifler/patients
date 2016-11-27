@@ -10,6 +10,7 @@ public class DBModel {
     public void createDatabase() {
         DBConnection connection = new DBConnection();
         try {
+
             preparedStatement = connection.getConnection().prepareStatement("create database if not exists Patient DEFAULT CHARACTER SET utf8 \n"
                     + "  DEFAULT COLLATE utf8_general_ci");
             preparedStatement.execute();
