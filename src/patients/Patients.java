@@ -1,6 +1,7 @@
 
 package patients;
 
+import database.DBModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

@@ -23,6 +23,9 @@ public class DBModel {
                     + "  `Address` text,\n"
                     + "  PRIMARY KEY (`Id`));");
             preparedStatement.execute();
+
+            System.out.println("Database Created");
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
