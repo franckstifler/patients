@@ -13,6 +13,7 @@ public class DBModel {
             preparedStatement = connection.getConnection().prepareStatement("create database if not exists Patient DEFAULT CHARACTER SET utf8 \n"
                     + "  DEFAULT COLLATE utf8_general_ci");
             preparedStatement.execute();
+
             preparedStatement = connection.getConnection().prepareStatement("CREATE TABLE if not exists `Patient`.`patient` (\n"
                     + "  `Id` int(11) NOT NULL AUTO_INCREMENT,\n"
                     + "  `Nom` VARCHAR(20) NOT NULL,\n"
