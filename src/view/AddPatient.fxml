@@ -37,12 +37,6 @@
                                 <TextField fx:id="pname" />
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" spacing="30">
-                            <children>
-                                <Label text="patient surname : " />
-                                <TextField fx:id="psurname" />
-                            </children>
-                        </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="48">
                             <children>
                                 <Label text="patient phone : " />
@@ -59,6 +53,18 @@
                             <children>
                                 <Label text="patient location : " />
                                 <TextField fx:id="plocation" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <children>
+                                <Label text="patient date of birth : " />
+                                <TextField fx:id="pdob" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="5">
+                            <children>
+                                <Label text="patient place of birth : " />
+                                <TextField fx:id="ppob" />
                             </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="70">

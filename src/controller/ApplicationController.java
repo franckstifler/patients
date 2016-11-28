@@ -33,11 +33,11 @@ public class ApplicationController implements Initializable {
     public Button btnDelete;
     public TableColumn idColumn;
     public TableColumn nameColumn;
-    public TableColumn surnameColumn;
     public TableColumn phoneColumn;
     public TableColumn emailColumn;
-    public TableColumn cityColumn;
-    
+    public TableColumn locationColumn;
+    public TableColumn pobColumn;
+
     Connection connection;
     DBModel dbModel;
     DBConnection dbConnection;

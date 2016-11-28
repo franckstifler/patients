@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditPatientController">
+<StackPane xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditPatientController">
     <children>
         <BorderPane prefHeight="500" prefWidth="500">
             <top>
@@ -31,16 +31,16 @@
             <center>
                 <VBox alignment="TOP_LEFT" spacing="30">
                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="75">
+                            <children>
+                                <Label text="patient id : " />
+                                <TextField fx:id="pid" editable="false" />
+                            </children>
+                        </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="50">
                             <children>
                                 <Label text="patient name : " />
                                 <TextField fx:id="pname" />
-                            </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" spacing="30">
-                            <children>
-                                <Label text="patient surname : " />
-                                <TextField fx:id="psurname" />
                             </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="48">
@@ -59,6 +59,18 @@
                             <children>
                                 <Label text="patient location : " />
                                 <TextField fx:id="plocation" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <children>
+                                <Label text="patient date of birth : " />
+                                <TextField fx:id="pdob" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="5">
+                            <children>
+                                <Label text="patient place of birth : " />
+                                <TextField fx:id="ppob" />
                             </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="70">

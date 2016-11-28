@@ -1,6 +1,14 @@
 package database;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
+import org.omg.CORBA.TRANSACTION_MODE;
+import patients.Patient;
+
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 //new db
@@ -33,23 +41,88 @@ public class DBModel {
         }
     }
 
-    public boolean insertPatient(String name, String location, String phone, String email, String pob, String dob, String other) {
+    public void insertPatient(Patient patient) {
         try {
-            DBConnection connection = new DBConnection();
+            DBConnection dbConnection = new DBConnection();
+            Connection connection = dbConnection.getDBConnection();
             String query = "INSERT INTO Patient.patient (name, location, phone, email, pob, dob, other) VALUES (?,?,?,?,?,?,?)";
-            PreparedStatement pr = connection.getConnection().prepareStatement(query);
-            pr.setString(1, name);
-            pr.setString(2, location);
-            pr.setString(3, phone);
-            pr.setString(4, email);
-            pr.setString(5, pob);
-            pr.setString(6, dob);
-            pr.setString(7, other);
-            pr.execute();
-            return true;
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, patient.name);
+            preparedStatement.setString(2, patient.location);
+            preparedStatement.setString(3, patient.phone);
+            preparedStatement.setString(4, patient.email);
+            preparedStatement.setString(5, patient.pob);
+            preparedStatement.setString(6, patient.dob);
+            preparedStatement.setString(7, patient.other);
+            preparedStatement.execute();
         } catch(Exception e) {
             e.printStackTrace();
-            return false;
         }
+    }
+
+    public void updatePatient(Patient patient) {
+        try {
+            DBConnection dbConnection = new DBConnection();
+            Connection connection = dbConnection.getDBConnection();
+            String query = "UPDATE Patient.patient SET name=?, location=?, phone=?, email=?, pob=?, dob=?, other=? WHERE id=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, patient.name);
+            preparedStatement.setString(2, patient.location);
+            preparedStatement.setString(3, patient.phone);
+            preparedStatement.setString(4, patient.email);
+            preparedStatement.setString(5, patient.pob);
+            preparedStatement.setString(6, patient.dob);
+            preparedStatement.setString(7, patient.other);
+            preparedStatement.setInt(8, patient.id);
+            preparedStatement.executeUpdate();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void removePatient(Patient patient) {
+        try {
+            DBConnection dbConnection = new DBConnection();
+            Connection connection = dbConnection.getDBConnection();
+            String query = "DELETE FROM Patient.patient WHERE id=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, patient.id);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ObservableList<Patient> viewPatient() {
+        ObservableList<Patient> data = null;
+        try {
+            data = FXCollections.observableArrayList();
+
+            DBConnection dbConnection = new DBConnection();
+            Connection connection = dbConnection.getDBConnection();
+            String query = "SELECT * FROM Patient.patient";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            Patient patient = new Patient();
+
+            while (resultSet.next()) {
+                patient.id = resultSet.getInt(1);
+                patient.name = resultSet.getString(2);
+                patient.location = resultSet.getString(3);
+                patient.phone = resultSet.getString(4);
+                patient.email = resultSet.getString(5);
+                patient.pob = resultSet.getString(6);
+                patient.dob = resultSet.getString(7);
+                patient.other = resultSet.getString(8);
+
+                data.add(patient);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return data;
     }
 }
