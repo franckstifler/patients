@@ -11,7 +11,7 @@ public class DBConnection {
 
     String url = "jdbc:mysql://localhost:3306/";
     String username = "root";
-    String password = "";
+    String password = "root";
     String unicode = "?useUnicode=yes&characterEncoding=UTF-8";
 
     public Connection getConnection() {

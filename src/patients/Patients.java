@@ -20,6 +20,7 @@ public class Patients extends Application {
         
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("FCS hospital");
         stage.show();
     }
 
