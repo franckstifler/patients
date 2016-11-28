@@ -3,6 +3,7 @@ package database;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+//new db
 public class DBModel {
 
     public void createDatabase() {
