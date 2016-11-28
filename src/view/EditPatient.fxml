@@ -73,7 +73,7 @@
             <bottom>
                 <HBox alignment="CENTER_RIGHT" spacing="20">
                     <children>
-                        <Button fx:id="btnSave" onAction="#btnUpdateOnAction" text="Update" />
+                        <Button fx:id="btnUpdate" onAction="#btnUpdateOnAction" text="Update" />
                         <Button fx:id="btnReset" onAction="#btnResetOnAction" text="Reset" />
                         <Button fx:id="btnCancel" onAction="#btnCancelOnAction" text="Cancel" />
                     </children>

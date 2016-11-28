@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +21,7 @@ public class EditPatientController implements Initializable{
     public TextField pemail;
     public TextField plocation;
     public TextArea potherinfo;
-    public Button btnSave;
+    public Button btnUpdate;
     public Button btnReset;
     public Button btnCancel;
 
@@ -33,8 +34,16 @@ public class EditPatientController implements Initializable{
     }
 
     public void btnResetOnAction(ActionEvent actionEvent) {
+        pname.setText("");
+        psurname.setText("");
+        pphone.setText("");
+        pemail.setText("");
+        plocation.setText("");
+        potherinfo.setText("");
     }
 
     public void btnCancelOnAction(ActionEvent actionEvent) {
+        Stage stage = (Stage) btnUpdate.getScene().getWindow();
+        stage.close();
     }
 }
