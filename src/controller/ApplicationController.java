@@ -15,7 +15,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -64,7 +63,7 @@ public class ApplicationController implements Initializable {
     public void btnAddOnAction(ActionEvent actionEvent) {
         System.out.println(tfSearch.getCharacters());
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/PersonEditDialog.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/AddPatient.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("ABC");
