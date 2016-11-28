@@ -52,7 +52,7 @@
                         <HBox alignment="CENTER_LEFT" spacing="55">
                             <children>
                                 <Label text="patient email : " />
-                                <TextField fx:id="email" />
+                                <TextField fx:id="pemail" />
                             </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" spacing="40">
@@ -73,9 +73,9 @@
             <bottom>
                 <HBox alignment="CENTER_RIGHT" spacing="20">
                     <children>
-                        <Button text="Save" />
-                        <Button text="Reset" />
-                        <Button text="Cancel" />
+                        <Button fx:id="btnSave" onAction="#btnSaveOnAction" text="Save" />
+                        <Button fx:id="btnReset" onAction="#btnResetOnAction" text="Reset" />
+                        <Button fx:id="btnCancel" onAction="#btnCancelOnAction" text="Cancel" />
                     </children>
                <BorderPane.margin>
                   <Insets bottom="20.0" top="20.0" />

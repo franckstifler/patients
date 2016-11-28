@@ -28,8 +28,6 @@ import javafx.fxml.FXMLLoader;
 public class ApplicationController implements Initializable {
 
     public TextField tfSearch;
-    public TextField pname;
-    public TextField psurname;
     public Button btnAdd;
     public Button btnEdit;
     public Button btnDelete;
@@ -90,8 +88,4 @@ public class ApplicationController implements Initializable {
     public void btnDeleteOnAction(ActionEvent actionEvent) {
     }
 
-    @FXML
-    private void saveUsers(){
-        System.out.println(pname.getCharacters());
-    }
 }
