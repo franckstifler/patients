@@ -51,6 +51,4 @@ public class DBModel {
             return false;
         }
     }
-
-    public void
 }
