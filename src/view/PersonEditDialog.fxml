@@ -9,7 +9,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicationController">
    <children>
-      <Button layoutX="179.0" layoutY="382.0" mnemonicParsing="false" text="save" onAction="#saveUser"/>
+      <Button layoutX="179.0" layoutY="382.0" mnemonicParsing="false" text="save" onAction="#saveUsers"/>
       <Button layoutX="326.0" layoutY="382.0" mnemonicParsing="false" text="cancel" />
       <TextField id="pphone" layoutX="283.0" layoutY="130.0" />
       <TextField id="psurname" layoutX="283.0" layoutY="90.0" />

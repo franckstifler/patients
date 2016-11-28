@@ -82,7 +82,7 @@ public class ApplicationController implements Initializable {
     }
 
     @FXML
-    private void saveUser(){
+    private void saveUsers(){
         System.out.println(pname.getCharacters());
     }
 }
