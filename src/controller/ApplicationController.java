@@ -1,6 +1,7 @@
 
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,8 +28,6 @@ import javafx.fxml.FXMLLoader;
 public class ApplicationController implements Initializable {
 
     public TextField tfSearch;
-    public TextField pname;
-    public TextField psurname;
     public Button btnAdd;
     public Button btnEdit;
     public Button btnDelete;
@@ -61,27 +60,32 @@ public class ApplicationController implements Initializable {
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
-        System.out.println(tfSearch.getCharacters());
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/AddPatient.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
+            Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setTitle("ABC");
-            stage.setScene(new Scene(root1));
+            stage.setTitle("Add Patient");
+            stage.setScene(new Scene(root));
             stage.show();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public void btnEditOnAction(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/EditPatient.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Add Patient");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
     }
 
-    @FXML
-    private void saveUsers(){
-        System.out.println(pname.getCharacters());
-    }
 }

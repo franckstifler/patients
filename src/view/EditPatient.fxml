@@ -1,33 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="549.0" xmlns="http://javafx.com/javafx/8.0.102-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditPatientController">
+<StackPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditPatientController">
     <children>
-        <Button layoutX="179.0" layoutY="382.0" mnemonicParsing="false" text="save" onAction="#saveUsers"/>
-        <Button layoutX="326.0" layoutY="382.0" mnemonicParsing="false" text="cancel" />
-        <TextField fx:id="pphone" layoutX="283.0" layoutY="130.0" />
-        <TextField fx:id="psurname" layoutX="283.0" layoutY="90.0" />
-        <TextField fx:id="pname" layoutX="283.0" layoutY="50.0" />
-        <TextField fx:id="pemail" layoutX="283.0" layoutY="170.0" />
-        <TextField fx:id="plocation" layoutX="283.0" layoutY="210.0" />
-        <Label layoutX="120.0" layoutY="40.0" prefHeight="47.0" prefWidth="170.0" text="Patient name:" />
-        <Label layoutX="119.0" layoutY="74.0" prefHeight="47.0" prefWidth="170.0" text="Patient surname:" />
-        <Label layoutX="119.0" layoutY="110.0" prefHeight="47.0" prefWidth="170.0" text="Patient phone:" />
-        <Label layoutX="120.0" layoutY="150.0" prefHeight="47.0" prefWidth="170.0" text="Patient email:" />
-        <Label layoutX="119.0" layoutY="188.0" prefHeight="47.0" prefWidth="170.0" text="Patient location:" />
-        <Button layoutX="251.0" layoutY="382.0" mnemonicParsing="false" text="reset" />
-        <TextArea layoutX="285.0" layoutY="248.0" prefHeight="91.0" prefWidth="170.0" />
-        <Label layoutX="76.0" layoutY="255.0" text="Other infos about this patient:" />
-        <Label layoutX="135.0" prefHeight="30.0" prefWidth="269.0" text="Add a new patient.">
-            <font>
-                <Font name="System Bold" size="24.0" />
-            </font>
-        </Label>
+        <BorderPane prefHeight="500" prefWidth="500">
+            <top>
+                <HBox alignment="CENTER" style="-fx-border-style: solid; -fx-border-color: red; -fx-border-width: 0px 0px 5px 0px">
+                    <children>
+                        <Label text="Edit patient">
+                            <font>
+                                <Font size="24" />
+                            </font>
+                        </Label>
+                    </children>
+                    <BorderPane.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                    </BorderPane.margin>
+                </HBox>
+            </top>
+            <center>
+                <VBox alignment="TOP_LEFT" spacing="30">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="50">
+                            <children>
+                                <Label text="patient name : " />
+                                <TextField fx:id="pname" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="30">
+                            <children>
+                                <Label text="patient surname : " />
+                                <TextField fx:id="psurname" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="48">
+                            <children>
+                                <Label text="patient phone : " />
+                                <TextField fx:id="pphone" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="55">
+                            <children>
+                                <Label text="patient email : " />
+                                <TextField fx:id="pemail" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="40">
+                            <children>
+                                <Label text="patient location : " />
+                                <TextField fx:id="plocation" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="70">
+                            <children>
+                                <Label text="other infos : " />
+                                <TextArea fx:id="potherinfo" prefHeight="100" prefWidth="180" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+            <bottom>
+                <HBox alignment="CENTER_RIGHT" spacing="20">
+                    <children>
+                        <Button fx:id="btnUpdate" onAction="#btnUpdateOnAction" text="Update" />
+                        <Button fx:id="btnReset" onAction="#btnResetOnAction" text="Reset" />
+                        <Button fx:id="btnCancel" onAction="#btnCancelOnAction" text="Cancel" />
+                    </children>
+                    <BorderPane.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                    </BorderPane.margin>
+                </HBox>
+            </bottom>
+            <padding>
+                <Insets left="100" right="50" />
+            </padding>
+        </BorderPane>
     </children>
-</Pane>
+</StackPane>
