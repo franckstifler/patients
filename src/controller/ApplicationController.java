@@ -37,6 +37,8 @@ public class ApplicationController implements Initializable {
     public TableColumn emailColumn;
     public TableColumn locationColumn;
     public TableColumn pobColumn;
+    public TableColumn dobColumn;
+    public TableColumn otherColumn;
 
     Connection connection;
     DBModel dbModel;
