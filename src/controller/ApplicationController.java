@@ -10,10 +10,12 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import database.DBConnection;
+import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.*;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.*;
 import database.DBModel;
 import javafx.event.ActionEvent;
@@ -63,61 +65,14 @@ public class ApplicationController implements Initializable {
         dbConnection = new DBConnection();
         dbConnection.getDBConnection();
 
-        idColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Patient, Integer>, ObservableValue<Integer>>() {
-            @Override
-            public ObservableValue<Integer> call(TableColumn.CellDataFeatures<Patient, Integer> param) {
-                return new ReadOnlyObjectWrapper<Integer>(param.getValue().getId());
-            }
-        });
-
-        nameColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Patient, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Patient, String> param) {
-                return new ReadOnlyObjectWrapper<String>(param.getValue().getName());
-            }
-        });
-
-        locationColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Patient, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Patient, String> param) {
-                return new ReadOnlyObjectWrapper<String>(param.getValue().getLocation());
-            }
-        });
-
-        phoneColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Patient, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Patient, String> param) {
-                return new ReadOnlyObjectWrapper<String>(param.getValue().getPhone());
-            }
-        });
-
-        emailColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Patient, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Patient, String> param) {
-                return new ReadOnlyObjectWrapper<String>(param.getValue().getEmail());
-            }
-        });
-
-        pobColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Patient, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Patient, String> param) {
-                return new ReadOnlyObjectWrapper<String>(param.getValue().getPob());
-            }
-        });
-
-        dobColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Patient, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Patient, String> param) {
-                return new ReadOnlyObjectWrapper<String>(param.getValue().getDob());
-            }
-        });
-
-        otherColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Patient, String>, ObservableValue<String>>() {
-            @Override
-            public ObservableValue<String> call(TableColumn.CellDataFeatures<Patient, String> param) {
-                return new ReadOnlyObjectWrapper<String>(param.getValue().getOther());
-            }
-        });
+        idColumn.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("name"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("location"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("phone"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
+        pobColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("pob"));
+        dobColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("dob"));
+        otherColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("other"));
 
         table.getItems().addAll(dbModel.viewPatient());
 
