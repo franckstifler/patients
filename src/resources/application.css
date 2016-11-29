@@ -1,0 +1,14 @@
+#btnRefresh{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-size: 15px;
+    -fx-padding: 0px;
+    -fx-background-image: url("refresh.png");
+}
+#btnRefresh:hover{
+    -fx-cursor: hand;
+}
+#btnRefresh:pressed{
+    -fx-rotate: 100;
+    transition-delay: 5s;
+}

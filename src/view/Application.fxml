@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicationController">
+<AnchorPane id="AnchorPane" prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApplicationController">
     <children>
         <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <HBox alignment="CENTER" prefHeight="70" prefWidth="800" spacing="10.0" BorderPane.alignment="CENTER">
                     <children>
-                        <TextField fx:id="tfSearch"  onKeyReleased="#tfSearchOnKeyReleased" prefHeight="25.0" prefWidth="584.0" promptText="Search Patient" />
-                        <Button fx:id="btnRefresh" onAction="#btnRefreshOnAction" prefHeight="30.0" prefWidth="30.0" />
+                        <TextField fx:id="tfSearch" onKeyReleased="#tfSearchOnKeyReleased" prefHeight="25.0" prefWidth="584.0" promptText="Search Patient" />
+                        <Button fx:id="btnRefresh" onAction="#btnRefreshOnAction" prefHeight="30.0" prefWidth="30.0" ></Button>
                     </children>
                 </HBox>
             </top>

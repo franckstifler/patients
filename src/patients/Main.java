@@ -19,9 +19,11 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("../view/Application.fxml"));
         
         Scene scene = new Scene(root, 1000 , 600);
+        scene.getStylesheets().add(getClass().getResource("/resources/application.css").toExternalForm());
         stage.setScene(scene);
         stage.setTitle("FCS hospital");
         stage.show();
+
     }
 
     /**
