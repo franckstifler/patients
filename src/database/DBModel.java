@@ -124,4 +124,36 @@ public class DBModel {
 
         return data;
     }
+
+    public ObservableList<Patient> searchPatient(String search) {
+        ObservableList<Patient> data = null;
+        try {
+            data = FXCollections.observableArrayList();
+
+            DBConnection dbConnection = new DBConnection();
+            Connection connection = dbConnection.getDBConnection();
+            String query = "SELECT * FROM Patient.patient WHERE name LIKE '" + search + "%'";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Patient patient = new Patient();
+                patient.id = resultSet.getInt(1);
+                patient.name = resultSet.getString(2);
+                patient.location = resultSet.getString(3);
+                patient.phone = resultSet.getString(4);
+                patient.email = resultSet.getString(5);
+                patient.pob = resultSet.getString(6);
+                patient.dob = resultSet.getString(7);
+                patient.other = resultSet.getString(8);
+
+                data.add(patient);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return data;
+    }
 }

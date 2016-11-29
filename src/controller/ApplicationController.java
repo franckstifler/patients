@@ -70,6 +70,8 @@ public class ApplicationController implements Initializable {
     }
 
     public void tfSearchOnKeyReleased(KeyEvent keyEvent) {
+        table.getItems().clear();
+        table.setItems(dbModel.searchPatient(tfSearch.getText().trim()));
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
