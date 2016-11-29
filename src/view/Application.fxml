@@ -14,6 +14,7 @@
                 <HBox alignment="CENTER" prefHeight="70" prefWidth="800" spacing="10.0" BorderPane.alignment="CENTER">
                     <children>
                         <TextField fx:id="tfSearch"  onKeyReleased="#tfSearchOnKeyReleased" prefHeight="25.0" prefWidth="584.0" promptText="Search Patient" />
+                        <Button fx:id="btnRefresh" onAction="#btnRefreshOnAction" prefHeight="30.0" prefWidth="30.0" />
                     </children>
                 </HBox>
             </top>

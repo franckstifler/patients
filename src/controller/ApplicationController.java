@@ -131,4 +131,7 @@ public class ApplicationController implements Initializable {
         table.getItems().addAll(dbModel.viewPatient());
     }
 
+    public void btnRefreshOnAction(ActionEvent actionEvent) {
+        initialize();
+    }
 }
