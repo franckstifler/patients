@@ -104,9 +104,8 @@ public class DBModel {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            Patient patient = new Patient();
-
             while (resultSet.next()) {
+                Patient patient = new Patient();
                 patient.id = resultSet.getInt(1);
                 patient.name = resultSet.getString(2);
                 patient.location = resultSet.getString(3);

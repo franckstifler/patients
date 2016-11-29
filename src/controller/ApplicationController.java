@@ -65,16 +65,7 @@ public class ApplicationController implements Initializable {
         dbConnection = new DBConnection();
         dbConnection.getDBConnection();
 
-        idColumn.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("name"));
-        locationColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("location"));
-        phoneColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("phone"));
-        emailColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
-        pobColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("pob"));
-        dobColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("dob"));
-        otherColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("other"));
-
-        table.getItems().addAll(dbModel.viewPatient());
+        initialize();
 
     }
 
@@ -95,19 +86,47 @@ public class ApplicationController implements Initializable {
     }
 
     public void btnEditOnAction(ActionEvent actionEvent) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/EditPatient.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Add Patient");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (table.getSelectionModel().getSelectedItem() != null) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/EditPatient.fxml"));
+                Parent root = fxmlLoader.load();
+                EditPatientController editPatientController = fxmlLoader.getController();
+                editPatientController.pid.setText(String.valueOf(table.getSelectionModel().getSelectedItem().id));
+                editPatientController.pname.setText(String.valueOf(table.getSelectionModel().getSelectedItem().name));
+                editPatientController.plocation.setText(String.valueOf(table.getSelectionModel().getSelectedItem().location));
+                editPatientController.pphone.setText(String.valueOf(table.getSelectionModel().getSelectedItem().phone));
+                editPatientController.pemail.setText(String.valueOf(table.getSelectionModel().getSelectedItem().email));
+                editPatientController.ppob.setText(String.valueOf(table.getSelectionModel().getSelectedItem().pob));
+                editPatientController.pdob.setText(String.valueOf(table.getSelectionModel().getSelectedItem().dob));
+                editPatientController.potherinfo.setText(String.valueOf(table.getSelectionModel().getSelectedItem().other));
+
+                Stage stage = new Stage();
+                stage.setTitle("Add Patient");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+    }
+
+    public void initialize() {
+
+        table.getItems().clear();
+
+        idColumn.setCellValueFactory(new PropertyValueFactory<Patient, Integer>("id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("name"));
+        locationColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("location"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("phone"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("email"));
+        pobColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("pob"));
+        dobColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("dob"));
+        otherColumn.setCellValueFactory(new PropertyValueFactory<Patient, String>("other"));
+
+        table.getItems().addAll(dbModel.viewPatient());
     }
 
 }
