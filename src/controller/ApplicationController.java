@@ -113,6 +113,10 @@ public class ApplicationController implements Initializable {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+        if (table.getSelectionModel().getSelectedItem() != null) {
+            dbModel.removePatient(table.getSelectionModel().getSelectedItem().id);
+            initialize();
+        }
     }
 
     public void initialize() {

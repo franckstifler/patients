@@ -80,13 +80,13 @@ public class DBModel {
         }
     }
 
-    public void removePatient(Patient patient) {
+    public void removePatient(int id) {
         try {
             DBConnection dbConnection = new DBConnection();
             Connection connection = dbConnection.getDBConnection();
             String query = "DELETE FROM Patient.patient WHERE id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, patient.id);
+            preparedStatement.setInt(1, id);
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
